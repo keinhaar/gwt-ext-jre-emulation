@@ -10,10 +10,18 @@ The implemented classes may, or may not implement all methods of the original cl
 Any contributions are welcome.
 
 # Classes Emulated
+
+## java.util
 - java.util.regex.Pattern
 - java.util.regex.Matcher
 - java.util.Calendar
 - java.util.GregorianCalendar
+
+## java.time
 - java.time.LocalDate
+
+## java.text
 - java.text.SimpleDateFormat
+
+## java.net
 - java.net.URL
