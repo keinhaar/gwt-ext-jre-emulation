@@ -86,7 +86,7 @@ public class LocalDate
         return year;
     }
 
-    public int getMonth()
+    public int getMonthValue()
     {
         return month;
     }

@@ -45,7 +45,7 @@ public class LocalDate_CustomFieldSerializer extends CustomFieldSerializer<Local
     public static void serialize(SerializationStreamWriter streamWriter, LocalDate instance) throws SerializationException
     {
         streamWriter.writeInt(instance.getYear());
-        streamWriter.writeInt(instance.getMonth().getValue());
+        streamWriter.writeInt(instance.getMonthValue());
         streamWriter.writeInt(instance.getDayOfMonth());
     }
 }
