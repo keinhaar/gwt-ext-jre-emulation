@@ -1,5 +1,6 @@
 package com.google.gwt.user.client.rpc.core.java.net;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import com.google.gwt.user.client.rpc.CustomFieldSerializer;
@@ -33,7 +34,15 @@ public class URL_CustomFieldSerializer extends CustomFieldSerializer<URL>
     
     public static URL instantiate(SerializationStreamReader streamReader) throws SerializationException
     {
-        return new URL(streamReader.readString());
+        try
+        {
+            return new URL(streamReader.readString());
+        } 
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
     }
     
     public static void serialize(SerializationStreamWriter streamWriter, URL instance) throws SerializationException

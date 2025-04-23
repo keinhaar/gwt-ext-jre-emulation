@@ -4,7 +4,7 @@ public class URL
 {
     private String url;
     
-    public URL(String url)
+    public URL(String url) throws MalformedURLException
     {
         this.url = url;
     }
@@ -12,5 +12,11 @@ public class URL
     public String toExternalForm()
     {
         return url;
+    }
+
+    @Override
+    public String toString()
+    {
+        return toExternalForm();
     }
 }

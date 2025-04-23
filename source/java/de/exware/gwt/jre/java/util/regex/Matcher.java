@@ -35,7 +35,7 @@ public class Matcher
 
     public boolean find()
     {
-        Pattern partPattern = Pattern.compile(".*" + pattern.pattern() + ".*");
+        Pattern partPattern = Pattern.compile(".*?" + pattern.pattern() + ".*?");
         matchResult = partPattern.regex.exec(input);
         return matchResult != null;
     }

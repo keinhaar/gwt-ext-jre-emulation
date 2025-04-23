@@ -2,8 +2,12 @@ package java.text;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Locale;
 
-import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.i18n.client.impl.cldr.DateTimeFormatInfoImpl_de;
+import com.google.gwt.i18n.shared.DateTimeFormat;
+import com.google.gwt.i18n.shared.DateTimeFormatInfo;
+import com.google.gwt.i18n.shared.impl.cldr.DateTimeFormatInfoImpl_en;
 
 public class SimpleDateFormat extends DateFormat
 {
@@ -11,7 +15,31 @@ public class SimpleDateFormat extends DateFormat
     
     public SimpleDateFormat(String pattern)
     {
-        df = DateTimeFormat.getFormat(pattern);
+        this(pattern, Locale.getDefault());
+    }
+    
+    public SimpleDateFormat(String pattern, Locale locale)
+    {
+        DateTimeFormatInfo info = null;
+        if("de".equals( locale.getLanguage()))
+        {
+            info = new DateTimeFormatInfoImpl_de();
+        }
+        else
+        {
+            info = new DateTimeFormatInfoImpl_en();
+        }
+        df = new LocalizedDateTimeFormat(pattern, info);
+    }
+    
+    class LocalizedDateTimeFormat extends DateTimeFormat
+    {
+
+        public LocalizedDateTimeFormat(String pattern, DateTimeFormatInfo info)
+        {
+            super(pattern, info);
+        }
+        
     }
     
     public String format(Date date)
